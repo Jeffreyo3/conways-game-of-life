@@ -1,5 +1,5 @@
 export const gridDisplay = (gridSize) => {
-  //   if (gridSize === 15) {
+  //   if (gridSize === 25) {
   return {
     display: "grid",
     gridTemplateColumns: `repeat(${gridSize}, 20px)`,
@@ -9,7 +9,7 @@ export const gridDisplay = (gridSize) => {
 };
 
 const cellSize = (gridSize) => {
-  //   if (gridSize === 15) {
+  //   if (gridSize === 25) {
   return "20px";
   //   }
 };

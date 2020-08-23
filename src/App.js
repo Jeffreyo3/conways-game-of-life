@@ -3,28 +3,15 @@ import "./App.css";
 
 import Cell from "./components/Cell";
 import { gridDisplay } from "./grid/display";
+import { blankGridArray, randomGridArray } from "./grid/createGrid";
 
 function App() {
   const [grid, setGrid] = useState([]);
   const [size, setSize] = useState(25);
   const [input, setInput] = useState(25);
   useEffect(() => {
-    const array = [];
-    let id = 0
-    // loop through grid size for width
-    for (let i = 0; i < size; i++) {
-      // loop through grid size for height
-      for (let j = 0; j < size; j++) {
-        array.push({
-          id: id++,
-          column: i + 1,
-          row: j + 1,
-          alive: false,
-          clickable: true,
-        });
-      }
-    }
-    setGrid(array);
+    // setGrid(blankGridArray(size));
+    setGrid(randomGridArray(size));
   }, [size]);
 
   const changeHandler = (e) => {
@@ -33,30 +20,41 @@ function App() {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    setSize(input)
+    setSize(input);
   };
   const toggleLife = (id) => {
-
-    const copyGrid = [...grid]
+    const copyGrid = [...grid];
     copyGrid[id] = {
       ...copyGrid[id],
-      alive: !copyGrid[id].alive
-    }
-    setGrid(copyGrid)
-  }
+      alive: !copyGrid[id].alive,
+    };
+    setGrid(copyGrid);
+  };
 
   return (
     <div className="App">
       <form onSubmit={submitHandler}>
         <label>
           Grid Size:
-          <input type="number" name="size" onChange={changeHandler} value={input} />
+          <input
+            type="number"
+            name="size"
+            onChange={changeHandler}
+            value={input}
+          />
         </label>
-        <input type="submit"  />
+        <input type="submit" />
       </form>
       <div style={gridDisplay(size)}>
         {grid.map((cell) => {
-          return <Cell key={cell.id} cell={cell} gridSize={size} toggleLife={toggleLife}/>;
+          return (
+            <Cell
+              key={cell.id}
+              cell={cell}
+              gridSize={size}
+              toggleLife={toggleLife}
+            />
+          );
         })}
       </div>
     </div>
