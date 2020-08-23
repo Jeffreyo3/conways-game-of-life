@@ -1,7 +1,7 @@
 import React from "react";
-import { cellDisplay } from "../grid/display";
+import { cellDisplay } from "../../grid/displayStyles";
 
-export default function Cell({ cell, gridSize, toggleLife }) {
+export default function Cell({ cell, gridSize, toggleLife,idx }) {
   //   console.log(cell);
   const [color, setColor] = React.useState(cellDisplay(cell.alive, gridSize));
   React.useEffect(() => {
@@ -12,7 +12,7 @@ export default function Cell({ cell, gridSize, toggleLife }) {
     <div
       className={cell.alive ? "alive" : "dead"}
       style={color}
-      onClick={cell.clickable ? (e) => toggleLife(cell.id) : null}
+      onClick={cell.clickable ? () => toggleLife(idx) : null}
     />
   );
 }
