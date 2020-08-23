@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 import Cell from "./components/Cell";
@@ -7,14 +6,17 @@ import { gridDisplay } from "./grid/display";
 
 function App() {
   const [grid, setGrid] = useState([]);
-  const [size, setSize] = useState(15);
+  const [size, setSize] = useState(25);
+  const [input, setInput] = useState(25);
   useEffect(() => {
     const array = [];
+    let id = 0
     // loop through grid size for width
     for (let i = 0; i < size; i++) {
       // loop through grid size for height
       for (let j = 0; j < size; j++) {
         array.push({
+          id: id++,
           column: i + 1,
           row: j + 1,
           alive: false,
@@ -24,25 +26,37 @@ function App() {
     }
     setGrid(array);
   }, [size]);
-  console.log(grid);
+
+  const changeHandler = (e) => {
+    e.preventDefault();
+    setInput(Number(e.target.value));
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setSize(input)
+  };
+  const toggleLife = (id) => {
+
+    const copyGrid = [...grid]
+    copyGrid[id] = {
+      ...copyGrid[id],
+      alive: !copyGrid[id].alive
+    }
+    setGrid(copyGrid)
+  }
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Conway's Game of Life</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <form onSubmit={submitHandler}>
+        <label>
+          Grid Size:
+          <input type="number" name="size" onChange={changeHandler} value={input} />
+        </label>
+        <input type="submit"  />
+      </form>
       <div style={gridDisplay(size)}>
         {grid.map((cell) => {
-          return <Cell cell={cell} gridSize={size} />;
+          return <Cell key={cell.id} cell={cell} gridSize={size} toggleLife={toggleLife}/>;
         })}
       </div>
     </div>
