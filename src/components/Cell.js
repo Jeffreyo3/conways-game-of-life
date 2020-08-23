@@ -1,13 +1,13 @@
-import React from 'react';
-import { cellDisplay } from '../grid/display'
+import React from "react";
+import { cellDisplay } from "../grid/display";
 
-
-export default function Cell(props) {
-    return (
-        <div
-            className={props.alive ? "alive" : "dead"}
-            style={cellDisplay(props.alive, props.gridSize)}
-            onClick={props.clickable ? props.toggleLife : null}
-        />
-    )
+export default function Cell({ cell, gridSize }) {
+  console.log(cell);
+  return (
+    <div
+      className={cell.alive ? "alive" : "dead"}
+      style={cellDisplay(cell.alive, gridSize)}
+      onClick={cell.clickable ? cell.toggleLife : null}
+    />
+  );
 }
