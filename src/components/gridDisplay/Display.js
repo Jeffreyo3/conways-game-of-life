@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
-import { randomGridArray, blankGridArray, findNeighborIdx } from "../../grid/gridHelpers";
+import {
+  simulate,
+  randomGridArray,
+  blankGridArray,
+  findNeighborIdx,
+} from "../../grid/gridHelpers";
 
 const Display = () => {
   const [grid, setGrid] = useState([]);
@@ -24,19 +29,25 @@ const Display = () => {
     e.preventDefault();
     setGrid(blankGridArray(size));
   };
-  const randomGrid = e => {
-      e.preventDefault()
-      setGrid(randomGridArray(size));
-  }
+  const randomGrid = (e) => {
+    e.preventDefault();
+    setGrid(randomGridArray(size));
+  };
   const toggleLife = (id) => {
     const copyGrid = [...grid];
     copyGrid[id] = {
       ...copyGrid[id],
       alive: !copyGrid[id].alive,
     };
-    console.log(copyGrid[id])
-    console.log(findNeighborIdx(size, id, copyGrid))
+    console.log(copyGrid[id]);
+    console.log(findNeighborIdx(size, id, copyGrid));
     setGrid(copyGrid);
+  };
+
+  const step = async (e) => {
+    e.preventDefault();
+    console.log(grid);
+    setGrid(await simulate([...grid], size));
   };
 
   return (
@@ -54,10 +65,13 @@ const Display = () => {
         </label>
         {/* <input type="submit" /> */}
         <label>
-          <input type="button" value="Clear Grid" onClick={clearGrid}/>
+          <input type="button" value="Clear Grid" onClick={clearGrid} />
         </label>
         <label>
-          <input type="button" value="Random Grid" onClick={randomGrid}/>
+          <input type="button" value="Random Grid" onClick={randomGrid} />
+        </label>
+        <label>
+          <input type="button" value="Step forward" onClick={step} />
         </label>
       </form>
       <div style={gridDisplay(size)}>

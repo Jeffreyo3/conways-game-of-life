@@ -34,18 +34,6 @@ export const randomGridArray = (size) => {
   return array;
 };
 
-export const findCellById = (arr, id) => {
-  const results = arr[id];
-  // arr.forEach((cell, idx) => {
-  //   if (cell.id === Number(id)){
-  //     results.push({...cell, idx})
-  //   }});
-  if (!results) {
-    return null;
-  } else {
-    return results;
-  }
-};
 export const findNeighborIdx = (size, idx, array) => {
   const currRow = Math.floor(idx / size) + 1;
   const currColumn = (idx % size) + 1;
@@ -82,11 +70,44 @@ export const findNeighborIdx = (size, idx, array) => {
   };
 };
 
-export const simulate = (array, cycles = 10) => {
-  const next = [...array];
-  array.forEach((cell) => {
-    const neighbors = findNeighborIdx();
+const evalLivingNeighbors = (neighbors) => {
+  let neighborhoodPop = 0;
+  Object.values(neighbors).forEach((neighbor) => {
+    if (neighbor.alive) {
+      neighborhoodPop++;
+    }
   });
+  return neighborhoodPop;
+};
 
+export const simulate = (array, size) => {
+  const next = [];
+  array.forEach((cell, idx) => {
+    const neighbors = findNeighborIdx(size, idx, array);
+    const population = evalLivingNeighbors(neighbors);
+
+    // Death cell rules
+    if (cell.alive === false) {
+      // reproduction
+      if (population > 2) {
+        next.push({ ...cell, alive: true });
+      } else {
+        next.push(cell);
+      }
+      // Live cell rules
+    } else if (cell.alive === true) {
+      // underpopulation
+      if (population < 2) {
+        next.push({ ...cell, alive: false });
+        // overpopulation
+      } else if (population > 3) {
+        next.push({ ...cell, alive: false });
+        // next generation/healthy population
+      } else if (population === 2 || population === 3) {
+        next.push({ ...cell, alive: true });
+      }
+    }
+  });
+  console.log(next);
   return next;
 };
