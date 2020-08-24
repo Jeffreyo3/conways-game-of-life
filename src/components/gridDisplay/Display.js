@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
-import { randomGridArray, blankGridArray } from "../../grid/gridHelpers";
+import { randomGridArray, blankGridArray, findNeighborIdx } from "../../grid/gridHelpers";
 
 const Display = () => {
   const [grid, setGrid] = useState([]);
@@ -34,6 +34,8 @@ const Display = () => {
       ...copyGrid[id],
       alive: !copyGrid[id].alive,
     };
+    console.log(copyGrid[id])
+    console.log(findNeighborIdx(size, id, copyGrid))
     setGrid(copyGrid);
   };
 

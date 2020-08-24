@@ -24,12 +24,14 @@ export const cellDisplay = (alive, gridSize) => {
       width: `${cellSize(gridSize)}`,
       height: `${cellSize(gridSize)}`,
       background: `rgb(${ranColor1}, ${ranColor2}, ${ranColor3})`,
+      border: "none",
     };
   } else {
     return {
       width: `${cellSize(gridSize)}`,
       height: `${cellSize(gridSize)}`,
       background: "black",
+      border: "1px solid grey",
     };
   }
 };
