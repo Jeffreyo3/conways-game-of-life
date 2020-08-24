@@ -46,7 +46,6 @@ const Display = () => {
 
   const step = async (e) => {
     e.preventDefault();
-    console.log(grid);
     setGrid(await simulate([...grid], size));
   };
 

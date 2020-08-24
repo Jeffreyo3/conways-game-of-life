@@ -89,8 +89,9 @@ export const simulate = (array, size) => {
     // Death cell rules
     if (cell.alive === false) {
       // reproduction
-      if (population > 2) {
+      if (population === 3) {
         next.push({ ...cell, alive: true });
+      // remain dead
       } else {
         next.push(cell);
       }
@@ -108,6 +109,5 @@ export const simulate = (array, size) => {
       }
     }
   });
-  console.log(next);
   return next;
 };
