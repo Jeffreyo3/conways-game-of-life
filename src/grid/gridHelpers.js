@@ -35,17 +35,41 @@ export const randomGridArray = (size) => {
 };
 
 export const findCellById = (arr, id) => {
-  return arr.filter((cell) => cell.id === Number(id))[0];
+  const results = arr.filter((cell) => cell.id === Number(id))[0];
+  if (!results) {
+    return null;
+  } else {
+    return results;
+  }
 };
 export const findNeighborsById = (arr, id) => {
+  const leftUp = findCellById(arr, `${arr[id].column - 1}${arr[id].row - 1}`);
+  const up = findCellById(arr, `${arr[id].column}${arr[id].row - 1}`);
+  const rightUp = findCellById(arr, `${arr[id].column + 1}${arr[id].row - 1}`);
+  const left = findCellById(arr, `${arr[id].column - 1}${arr[id].row}`);
+  const right = findCellById(arr, `${arr[id].column + 1}${arr[id].row}`);
+  const leftDown = findCellById(arr, `${arr[id].column - 1}${arr[id].row + 1}`);
+  const down = findCellById(arr, `${arr[id].column}${arr[id].row + 1}`);
+  const rightDown = findCellById(
+    arr,
+    `${arr[id].column + 1}${arr[id].row + 1}`
+  );
   return {
-    leftUp: findCellById(arr, `${arr[id].column - 1}${arr[id].row - 1}`),
-    up: findCellById(arr, `${arr[id].column}${arr[id].row - 1}`),
-    rightUp: findCellById(arr, `${arr[id].column + 1}${arr[id].row - 1}`),
-    left: findCellById(arr, `${arr[id].column - 1}${arr[id].row}`),
-    right: findCellById(arr, `${arr[id].column + 1}${arr[id].row}`),
-    leftDown: findCellById(arr, `${arr[id].column - 1}${arr[id].row + 1}`),
-    down: findCellById(arr, `${arr[id].column}${arr[id].row + 1}`),
-    rightDown: findCellById(arr, `${arr[id].column + 1}${arr[id].row + 1}`),
+    leftUp,
+    up,
+    rightUp,
+    left,
+    right,
+    leftDown,
+    down,
+    rightDown,
   };
+};
+
+export const simulate = (array, cycles = 10) => {
+  if (cycles === 0) {
+    return array;
+  } else if (cycles > 0) {
+    const next = array.map((cell) => {});
+  }
 };

@@ -41,11 +41,11 @@ const Display = () => {
     <>
       <form onSubmit={submitHandler}>
         <label>
-          Grid Size:
+          Grid Size (max 50):
           <input
             type="number"
             name="size"
-            max="40"
+            max="50"
             onChange={changeHandler}
             value={input}
           />

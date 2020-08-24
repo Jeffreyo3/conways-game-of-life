@@ -15,19 +15,20 @@ const cellSize = (gridSize) => {
 };
 
 export const cellDisplay = (alive, gridSize) => {
-  const ranColor1 = Math.floor(Math.random() * Math.floor(230)) + 25;
-  const ranColor2 = Math.floor(Math.random() * Math.floor(230)) + 25;
-  const ranColor3 = Math.floor(Math.random() * Math.floor(230)) + 25;
-  const cell = {
-    width: `${cellSize(gridSize)}`,
-    height: `${cellSize(gridSize)}`,
-    background: `rgb(${ranColor1}, ${ranColor2}, ${ranColor3})`,
-  };
   if (alive) {
-    return cell;
+    const ranColor1 = Math.floor(Math.random() * Math.floor(220)) + 35;
+    const ranColor2 = Math.floor(Math.random() * Math.floor(220)) + 35;
+    const ranColor3 = Math.floor(Math.random() * Math.floor(220)) + 35;
+
+    return {
+      width: `${cellSize(gridSize)}`,
+      height: `${cellSize(gridSize)}`,
+      background: `rgb(${ranColor1}, ${ranColor2}, ${ranColor3})`,
+    };
   } else {
     return {
-      ...cell,
+      width: `${cellSize(gridSize)}`,
+      height: `${cellSize(gridSize)}`,
       background: "black",
     };
   }
