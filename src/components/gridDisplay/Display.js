@@ -1,71 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
 import {
-  simulate,
   randomGridArray,
   blankGridArray,
-  findNeighborIdx,
-} from "../../grid/gridHelpers";
+  setSize,
+  setInput,
+  clickableOff,
+  cycleLife,
+} from "../../actions/gridAction";
+
+import { useSelector, useDispatch } from "react-redux";
 
 const Display = () => {
-  const [grid, setGrid] = useState([]);
-  const [next, setNext] = useState([]);
-  const [size, setSize] = useState(25);
-  const [input, setInput] = useState(25);
+  const dispatch = useDispatch();
+  const { grid, nextGrid, size, input } = useSelector((state) => state);
 
   useEffect(() => {
-    const startGrid = randomGridArray(size);
-    setGrid(startGrid);
-    setNext(startGrid);
+    dispatch(randomGridArray(size));
   }, [size]);
-
-  useEffect(() => {
-    async function step() {
-      return await simulate([...grid], size);
-    }
-
-    const nextStep = step();
-    console.log(nextStep);
-    setNext(nextStep);
-  }, [grid, size]);
 
   const changeHandler = (e) => {
     e.preventDefault();
-    setInput(Number(e.target.value));
+    dispatch(setInput(Number(e.target.value)));
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    setSize(input);
+    dispatch(setSize(input));
   };
   const clearGrid = (e) => {
     e.preventDefault();
-    setGrid(blankGridArray(size));
+    dispatch(blankGridArray(size));
   };
   const randomGrid = (e) => {
     e.preventDefault();
-    setGrid(randomGridArray(size));
-  };
-  const toggleLife = (id) => {
-    const copyGrid = [...grid];
-    copyGrid[id] = {
-      ...copyGrid[id],
-      alive: !copyGrid[id].alive,
-    };
-    console.log(copyGrid[id]);
-    console.log(findNeighborIdx(size, id, copyGrid));
-    setGrid(copyGrid);
+    dispatch(randomGridArray(size));
   };
 
   const stepClick = async (e) => {
     e.preventDefault();
-    const click = await next;
-    const clickoff = click.map((obj) => {
-      return { ...obj, clickable: false };
-    });
-    console.log(clickoff);
-    setNext(clickoff);
-    setGrid(click);
+    dispatch(clickableOff());
+    dispatch(cycleLife(nextGrid, size));
   };
 
   return (
@@ -81,7 +56,7 @@ const Display = () => {
             value={input}
           />
         </label>
-        {/* <input type="submit" /> */}
+        <input type="submit" />
         <label>
           <input type="button" value="Clear Grid" onClick={clearGrid} />
         </label>
@@ -92,18 +67,23 @@ const Display = () => {
           <input type="button" value="Step forward" onClick={stepClick} />
         </label>
       </form>
-      <div style={gridDisplay(size)}>
-        {grid.map((cell, idx) => {
-          return (
-            <Cell
-              key={idx}
-              idx={idx}
-              cell={cell}
-              gridSize={size}
-              toggleLife={toggleLife}
-            />
-          );
-        })}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <div style={gridDisplay(size)}>
+          {grid.map((cell, idx) => {
+            return <Cell key={idx} idx={idx} cell={cell} />;
+          })}
+        </div>
+        <div style={gridDisplay(size)}>
+          {nextGrid.map((cell, idx) => {
+            return <Cell key={idx} idx={idx} cell={cell} />;
+          })}
+        </div>
       </div>
     </>
   );
