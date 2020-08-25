@@ -5,6 +5,8 @@ import {
   TOGGLE_LIFE,
   CLICKABLE_OFF,
   CYCLE_LIFE,
+  UPDATE_SIMULATE,
+  COUNT_STEPS,
 } from "./actionTypes";
 import { simulate } from "../grid/gridHelpers";
 
@@ -71,4 +73,12 @@ export const cycleLife = (nextGrid, size) => {
     type: CYCLE_LIFE,
     payload: { grid: nextGrid, nextGrid: nextNextGrid },
   };
+};
+
+export const updateSimulation = (boolean) => {
+  return { type: UPDATE_SIMULATE, payload: boolean };
+};
+
+export const countSteps = (steps) => {
+  return { type: COUNT_STEPS, payload: steps + 1 };
 };
