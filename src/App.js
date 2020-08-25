@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 import Display from "./components/gridDisplay/Display";
-import Settings from "./components/form/Settings";
+import Settings from "./components/Settings";
 
 function App() {
   return (

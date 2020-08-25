@@ -52,11 +52,11 @@ const Display = () => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
         </div>
-        <div style={gridDisplay(size)}>
+        {/* <div style={gridDisplay(size)}>
           {nextGrid.map((cell, idx) => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );

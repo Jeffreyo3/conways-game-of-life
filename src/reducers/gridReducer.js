@@ -7,6 +7,8 @@ import {
   CYCLE_LIFE,
   UPDATE_SIMULATE,
   COUNT_STEPS,
+  UPDATE_TIMEOUT,
+  UPDATE_CYCLES,
 } from "../actions/actionTypes";
 
 export const initialState = {
@@ -15,7 +17,7 @@ export const initialState = {
   size: 25,
   sizeInput: 25,
   clickable: true,
-  cycles: 60,
+  cycles: 100,
   setTimeOut: 500,
   simulate: false,
   steps: 0,
@@ -59,6 +61,16 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         steps: action.payload,
+      };
+    case UPDATE_TIMEOUT:
+      return {
+        ...state,
+        setTimeOut: action.payload,
+      };
+    case UPDATE_CYCLES:
+      return {
+        ...state,
+        cycles: action.payload,
       };
     default:
       return state;

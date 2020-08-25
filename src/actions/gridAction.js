@@ -7,6 +7,8 @@ import {
   CYCLE_LIFE,
   UPDATE_SIMULATE,
   COUNT_STEPS,
+  UPDATE_TIMEOUT,
+  UPDATE_CYCLES,
 } from "./actionTypes";
 import { simulate } from "../grid/gridHelpers";
 
@@ -91,4 +93,12 @@ export const countSteps = (steps) => {
 
 export const resetSteps = () => {
   return { type: COUNT_STEPS, payload: 0 };
+};
+
+export const updateTimeOut = (time) => {
+  return { type: UPDATE_TIMEOUT, payload: time };
+};
+
+export const updateCycles = (cycles) => {
+  return { type: UPDATE_CYCLES, payload: cycles };
 };
