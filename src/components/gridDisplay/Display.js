@@ -10,12 +10,25 @@ import {
 
 const Display = () => {
   const [grid, setGrid] = useState([]);
+  const [next, setNext] = useState([]);
   const [size, setSize] = useState(25);
   const [input, setInput] = useState(25);
 
   useEffect(() => {
-    setGrid(randomGridArray(size));
+    const startGrid = randomGridArray(size);
+    setGrid(startGrid);
+    setNext(startGrid);
   }, [size]);
+
+  useEffect(() => {
+    async function step() {
+      return await simulate([...grid], size);
+    }
+
+    const nextStep = step();
+    console.log(nextStep);
+    setNext(nextStep);
+  }, [grid, size]);
 
   const changeHandler = (e) => {
     e.preventDefault();
@@ -44,9 +57,15 @@ const Display = () => {
     setGrid(copyGrid);
   };
 
-  const step = async (e) => {
+  const stepClick = async (e) => {
     e.preventDefault();
-    setGrid(await simulate([...grid], size));
+    const click = await next;
+    const clickoff = click.map((obj) => {
+      return { ...obj, clickable: false };
+    });
+    console.log(clickoff);
+    setNext(clickoff);
+    setGrid(click);
   };
 
   return (
@@ -70,7 +89,7 @@ const Display = () => {
           <input type="button" value="Random Grid" onClick={randomGrid} />
         </label>
         <label>
-          <input type="button" value="Step forward" onClick={step} />
+          <input type="button" value="Step forward" onClick={stepClick} />
         </label>
       </form>
       <div style={gridDisplay(size)}>
