@@ -10,6 +10,7 @@ import {
   cycleLife,
   countSteps,
   updateSimulation,
+  resetSteps,
 } from "../../actions/gridAction";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -63,6 +64,9 @@ const Display = () => {
 
   const stepClick = (e) => {
     e.preventDefault();
+    if (simulate) {
+      dispatch(updateSimulation(false));
+    }
     dispatch(clickableOff());
     dispatch(cycleLife(nextGrid, size));
   };
@@ -70,6 +74,7 @@ const Display = () => {
   const simClick = (e) => {
     e.preventDefault();
     dispatch(updateSimulation(true));
+    dispatch(resetSteps());
     dispatch(clickableOff());
   };
 

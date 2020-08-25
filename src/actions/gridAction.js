@@ -25,7 +25,10 @@ export const randomGridArray = (size) => {
     }
   }
   const nextArr = simulate(array, size);
-  return { type: GENERATE_GRID, payload: { grid: array, nextGrid: nextArr } };
+  return {
+    type: GENERATE_GRID,
+    payload: { grid: array, nextGrid: nextArr, simulate: false },
+  };
 };
 
 export const blankGridArray = (size) => {
@@ -42,7 +45,10 @@ export const blankGridArray = (size) => {
       });
     }
   }
-  return { type: GENERATE_GRID, payload: { grid: array, nextGrid: array } };
+  return {
+    type: GENERATE_GRID,
+    payload: { grid: array, nextGrid: array, simulate: false },
+  };
 };
 
 export const setInput = (num) => {
@@ -81,4 +87,8 @@ export const updateSimulation = (boolean) => {
 
 export const countSteps = (steps) => {
   return { type: COUNT_STEPS, payload: steps + 1 };
+};
+
+export const resetSteps = () => {
+  return { type: COUNT_STEPS, payload: 0 };
 };
