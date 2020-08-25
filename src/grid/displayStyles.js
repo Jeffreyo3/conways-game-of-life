@@ -24,7 +24,7 @@ export const cellDisplay = (alive, gridSize) => {
       width: `${cellSize(gridSize)}`,
       height: `${cellSize(gridSize)}`,
       background: `rgb(${ranColor1}, ${ranColor2}, ${ranColor3})`,
-      border: "none",
+      border: ".5px solid black",
     };
   } else {
     return {

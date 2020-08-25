@@ -1,39 +1,3 @@
-export const blankGridArray = (size) => {
-  const array = [];
-  // loop through grid size for width
-  for (let i = 0; i < size; i++) {
-    // loop through grid size for height
-    for (let j = 0; j < size; j++) {
-      array.push({
-        id: Number(`${j + 1}${i + 1}`),
-        column: j + 1,
-        row: i + 1,
-        alive: false,
-        clickable: true,
-      });
-    }
-  }
-  return array;
-};
-
-export const randomGridArray = (size) => {
-  const array = [];
-  // loop through grid size for width
-  for (let i = 0; i < size; i++) {
-    // loop through grid size for height
-    for (let j = 0; j < size; j++) {
-      array.push({
-        id: Number(`${j + 1}${i + 1}`),
-        column: j + 1,
-        row: i + 1,
-        alive: Math.floor(Math.random() * 2 - 0.75) === 1 ? true : false,
-        clickable: true,
-      });
-    }
-  }
-  return array;
-};
-
 export const findNeighborIdx = (size, idx, array) => {
   const currRow = Math.floor(idx / size) + 1;
   const currColumn = (idx % size) + 1;
@@ -91,7 +55,7 @@ export const simulate = (array, size) => {
       // reproduction
       if (population === 3) {
         next.push({ ...cell, alive: true });
-      // remain dead
+        // remain dead
       } else {
         next.push(cell);
       }
