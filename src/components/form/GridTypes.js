@@ -30,10 +30,10 @@ const GridTypes = () => {
         <input type="button" value="Random Layout" onClick={randomGrid} />
       </label>
       <label>
-        <input type="button" value="Pulsar Oscillator" onClick={pulsarGrid} />
+        <input type="button" value="Pulsar Oscillator" onClick={pulsarGrid} disabled={size<25} />
       </label>
       <label>
-        <input type="button" value="Hertz Oscillator" onClick={hertzGrid} />
+        <input type="button" value="Hertz Oscillator" onClick={hertzGrid} disabled={size<25}/>
       </label>
     </form>
   );

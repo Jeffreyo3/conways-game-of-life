@@ -9,6 +9,7 @@ import {
   COUNT_STEPS,
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
+  UPDATE_MAXSIZE,
 } from "./actionTypes";
 import { simulate, randomCentralPosition, findIdx } from "../grid/gridHelpers";
 
@@ -282,3 +283,7 @@ export const updateTimeOut = (time) => {
 export const updateCycles = (cycles) => {
   return { type: UPDATE_CYCLES, payload: cycles };
 };
+
+export const updateMaxSize = (newMax) => {
+  return {type: UPDATE_MAXSIZE, payload: newMax}
+}

@@ -5,6 +5,8 @@ import {
   pulsarGridArray,
   cycleLife,
   countSteps,
+  updateMaxSize,
+  randomGridArray,
 } from "../../actions/gridAction";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -23,7 +25,15 @@ const Display = () => {
   } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(pulsarGridArray(size));
+    if (window.innerWidth <= 500) {
+      // console.log(window.innerWidth/size)
+      dispatch(updateMaxSize(25));
+    }
+    if (size >= 25) {
+      dispatch(pulsarGridArray(size));
+    } else if (size < 25 && size > 15) {
+      dispatch(randomGridArray(size));
+    }
   }, [size]);
 
   useEffect(() => {
@@ -43,11 +53,13 @@ const Display = () => {
     <>
       <h2>Generation: {generation}</h2>
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
+        style={
+          {
+            // display: "flex",
+            // flexDirection: "row",
+            // justifyContent: "space-evenly",
+          }
+        }
       >
         <div style={gridDisplay(size)}>
           {grid.map((cell, idx) => {
