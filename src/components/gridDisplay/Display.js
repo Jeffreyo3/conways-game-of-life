@@ -2,71 +2,46 @@ import React, { useEffect } from "react";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
 import {
-  randomGridArray,
-  blankGridArray,
-  setSize,
-  setInput,
-  clickableOff,
+  pulsarGridArray,
   cycleLife,
+  countSteps,
 } from "../../actions/gridAction";
 
 import { useSelector, useDispatch } from "react-redux";
 
 const Display = () => {
   const dispatch = useDispatch();
-  const { grid, nextGrid, size, input } = useSelector((state) => state);
+  const {
+    grid,
+    nextGrid,
+    size,
+    cycles,
+    simulate,
+    setTimeOut,
+    steps,
+    generation,
+  } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(randomGridArray(size));
+    dispatch(pulsarGridArray(size));
   }, [size]);
 
-  const changeHandler = (e) => {
-    e.preventDefault();
-    dispatch(setInput(Number(e.target.value)));
-  };
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(setSize(input));
-  };
-  const clearGrid = (e) => {
-    e.preventDefault();
-    dispatch(blankGridArray(size));
-  };
-  const randomGrid = (e) => {
-    e.preventDefault();
-    dispatch(randomGridArray(size));
-  };
-
-  const stepClick = async (e) => {
-    e.preventDefault();
-    dispatch(clickableOff());
-    dispatch(cycleLife(nextGrid, size));
-  };
+  useEffect(() => {
+    let interval = null;
+    if (simulate && steps < cycles) {
+      dispatch(cycleLife(nextGrid, size));
+      interval = setInterval(() => {
+        dispatch(countSteps(steps));
+      }, setTimeOut);
+    } else if (!simulate && steps !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [simulate, steps]);
 
   return (
     <>
-      <form onSubmit={submitHandler}>
-        <label>
-          Grid Size (max 50):
-          <input
-            type="number"
-            name="size"
-            max="50"
-            onChange={changeHandler}
-            value={input}
-          />
-        </label>
-        <input type="submit" />
-        <label>
-          <input type="button" value="Clear Grid" onClick={clearGrid} />
-        </label>
-        <label>
-          <input type="button" value="Random Grid" onClick={randomGrid} />
-        </label>
-        <label>
-          <input type="button" value="Step forward" onClick={stepClick} />
-        </label>
-      </form>
+      <h2>Generation: {generation}</h2>
       <div
         style={{
           display: "flex",
@@ -79,11 +54,11 @@ const Display = () => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
         </div>
-        <div style={gridDisplay(size)}>
+        {/* <div style={gridDisplay(size)}>
           {nextGrid.map((cell, idx) => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );
