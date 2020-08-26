@@ -23,15 +23,15 @@ const Display = () => {
     steps,
     generation,
   } = useSelector((state) => state);
-
   useEffect(() => {
     if (window.innerWidth <= 500) {
-      // console.log(window.innerWidth/size)
       dispatch(updateMaxSize(25));
     }
+  });
+  useEffect(() => {
     if (size >= 25) {
       dispatch(pulsarGridArray(size));
-    } else if (size < 25 && size > 15) {
+    } else {
       dispatch(randomGridArray(size));
     }
   }, [size]);

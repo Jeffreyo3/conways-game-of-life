@@ -139,7 +139,7 @@ export const pulsarGridArray = (size) => {
     findIdx(-1, 6, center, size),
   ];
   for (let i = 0; i < pattern.length; i++) {
-    if (pattern !== null) {
+    if (pattern[i]) {
       array[pattern[i]].alive = true;
     }
   }
@@ -222,7 +222,7 @@ export const hertzOscillator = (size) => {
     findIdx(5, 5, center, size),
   ];
   for (let i = 0; i < pattern.length; i++) {
-    if (pattern !== null) {
+    if (pattern[i]) {
       array[pattern[i]].alive = true;
     }
   }
@@ -285,5 +285,5 @@ export const updateCycles = (cycles) => {
 };
 
 export const updateMaxSize = (newMax) => {
-  return {type: UPDATE_MAXSIZE, payload: newMax}
-}
+  return { type: UPDATE_MAXSIZE, payload: newMax };
+};
