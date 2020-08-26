@@ -1,16 +1,17 @@
 export const gridDisplay = (gridSize) => {
   //   if (gridSize === 25) {
+    // console.log(100/gridSize)
   return {
     display: "grid",
-    gridTemplateColumns: `repeat(${gridSize}, 20px)`,
-    gridTemplateRows: `repeat(${gridSize}, 20px)`,
+    gridTemplateColumns: `repeat(${gridSize}, 15px)`,
+    gridTemplateRows: `repeat(${gridSize}, 15px)`,
   };
   //   }
 };
 
 const cellSize = (gridSize) => {
   //   if (gridSize === 25) {
-  return "20px";
+  return "15px";
   //   }
 };
 
