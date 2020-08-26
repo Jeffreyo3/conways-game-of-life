@@ -21,6 +21,7 @@ export const initialState = {
   setTimeOut: 500,
   simulate: false,
   steps: 0,
+  generation: 1,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -31,6 +32,8 @@ export const reducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
         clickable: true,
+        steps: 0,
+        generation: 1,
       };
     case SET_INPUT:
       return {
@@ -51,6 +54,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+        generation: state.generation + 1,
       };
     case UPDATE_SIMULATE:
       return {

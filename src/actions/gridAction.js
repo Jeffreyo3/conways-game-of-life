@@ -10,7 +10,7 @@ import {
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
 } from "./actionTypes";
-import { simulate } from "../grid/gridHelpers";
+import { simulate, randomCentralPosition, findIdx } from "../grid/gridHelpers";
 
 export const randomGridArray = (size) => {
   const array = [];
@@ -19,7 +19,6 @@ export const randomGridArray = (size) => {
     // loop through grid size for height
     for (let j = 0; j < size; j++) {
       array.push({
-        id: Number(`${j + 1}${i + 1}`),
         column: j + 1,
         row: i + 1,
         alive: Math.floor(Math.random() * 2 - 0.75) === 1 ? true : false,
@@ -40,7 +39,6 @@ export const blankGridArray = (size) => {
     // loop through grid size for height
     for (let j = 0; j < size; j++) {
       array.push({
-        id: Number(`${j + 1}${i + 1}`),
         column: j + 1,
         row: i + 1,
         alive: false,
@@ -50,6 +48,188 @@ export const blankGridArray = (size) => {
   return {
     type: GENERATE_GRID,
     payload: { grid: array, nextGrid: array, simulate: false },
+  };
+};
+
+export const pulsarGridArray = (size) => {
+  const array = [];
+  // loop through grid size for width
+  for (let i = 0; i < size; i++) {
+    // loop through grid size for height
+    for (let j = 0; j < size; j++) {
+      array.push({
+        column: j + 1,
+        row: i + 1,
+        alive: false,
+      });
+    }
+  }
+  // pick a random centralized index
+  const center = randomCentralPosition(size);
+  const pattern = [
+    // findIdx(1, 1, center, size), // CENTER
+    // left-top
+    findIdx(4, 8, center, size),
+    findIdx(4, 7, center, size),
+    findIdx(4, 6, center, size),
+    findIdx(3, 6, center, size),
+    // up-left-left
+    findIdx(3, 2, center, size),
+    findIdx(4, 2, center, size),
+    findIdx(4, 3, center, size),
+    findIdx(2, 3, center, size),
+    findIdx(2, 4, center, size),
+    findIdx(3, 4, center, size),
+    // top-left
+    findIdx(8, 4, center, size),
+    findIdx(7, 4, center, size),
+    findIdx(6, 4, center, size),
+    findIdx(6, 3, center, size),
+    // top-right
+    findIdx(8, -2, center, size),
+    findIdx(7, -2, center, size),
+    findIdx(6, -2, center, size),
+    findIdx(6, -1, center, size),
+    // up-right-right
+    findIdx(3, 0, center, size),
+    findIdx(4, 0, center, size),
+    findIdx(4, -1, center, size),
+    findIdx(2, -1, center, size),
+    findIdx(2, -2, center, size),
+    findIdx(3, -2, center, size),
+    // right-top
+    findIdx(4, -6, center, size),
+    findIdx(4, -5, center, size),
+    findIdx(4, -4, center, size),
+    findIdx(3, -4, center, size),
+    // down-right-right
+    findIdx(-1, 0, center, size),
+    findIdx(-2, 0, center, size),
+    findIdx(-2, -1, center, size),
+    findIdx(0, -1, center, size),
+    findIdx(0, -2, center, size),
+    findIdx(-1, -2, center, size),
+    // right-bottom
+    findIdx(-2, -6, center, size),
+    findIdx(-2, -5, center, size),
+    findIdx(-2, -4, center, size),
+    findIdx(-1, -4, center, size),
+    // bottom-right
+    findIdx(-6, -2, center, size),
+    findIdx(-5, -2, center, size),
+    findIdx(-4, -2, center, size),
+    findIdx(-4, -1, center, size),
+    // down-left-left
+    findIdx(-1, 2, center, size),
+    findIdx(-2, 2, center, size),
+    findIdx(-2, 3, center, size),
+    findIdx(0, 3, center, size),
+    findIdx(0, 4, center, size),
+    findIdx(-1, 4, center, size),
+    // bottom-left
+    findIdx(-6, 4, center, size),
+    findIdx(-5, 4, center, size),
+    findIdx(-4, 4, center, size),
+    findIdx(-4, 3, center, size),
+    // left-bottom
+    findIdx(-2, 8, center, size),
+    findIdx(-2, 7, center, size),
+    findIdx(-2, 6, center, size),
+    findIdx(-1, 6, center, size),
+  ];
+  for (let i = 0; i < pattern.length; i++) {
+    if (pattern !== null) {
+      array[pattern[i]].alive = true;
+    }
+  }
+
+  const nextArr = simulate(array, size);
+  return {
+    type: GENERATE_GRID,
+    payload: { grid: array, nextGrid: nextArr, simulate: false },
+  };
+};
+
+export const hertzOscillator = (size) => {
+  const array = [];
+  // loop through grid size for width
+  for (let i = 0; i < size; i++) {
+    // loop through grid size for height
+    for (let j = 0; j < size; j++) {
+      array.push({
+        column: j + 1,
+        row: i + 1,
+        alive: false,
+      });
+    }
+  }
+  // pick a random centralized index
+  const center = randomCentralPosition(size);
+  const pattern = [
+    // findIdx(1, 1, center, size), // CENTER
+    // top
+    findIdx(4, 2, center, size),
+    findIdx(5, 2, center, size),
+    findIdx(4, 1, center, size),
+    findIdx(5, 1, center, size),
+    findIdx(4, 0, center, size),
+    findIdx(5, 0, center, size),
+    findIdx(4, -1, center, size),
+    findIdx(5, -1, center, size),
+    findIdx(4, -2, center, size),
+    findIdx(5, -2, center, size),
+    findIdx(4, -3, center, size),
+    findIdx(5, -3, center, size),
+    // right
+    findIdx(2, -2, center, size),
+    findIdx(2, -3, center, size),
+    findIdx(1, -2, center, size),
+    findIdx(1, -3, center, size),
+    findIdx(0, -2, center, size),
+    findIdx(0, -3, center, size),
+    findIdx(-1, -2, center, size),
+    findIdx(-1, -3, center, size),
+    findIdx(-2, -2, center, size),
+    findIdx(-2, -3, center, size),
+    findIdx(-3, -2, center, size),
+    findIdx(-3, -3, center, size),
+    // bottom
+    findIdx(-2, 0, center, size),
+    findIdx(-3, 0, center, size),
+    findIdx(-2, 1, center, size),
+    findIdx(-3, 1, center, size),
+    findIdx(-2, 2, center, size),
+    findIdx(-3, 2, center, size),
+    findIdx(-2, 3, center, size),
+    findIdx(-3, 3, center, size),
+    findIdx(-2, 4, center, size),
+    findIdx(-3, 4, center, size),
+    findIdx(-2, 5, center, size),
+    findIdx(-3, 5, center, size),
+    // left
+    findIdx(0, 4, center, size),
+    findIdx(0, 5, center, size),
+    findIdx(1, 4, center, size),
+    findIdx(1, 5, center, size),
+    findIdx(2, 4, center, size),
+    findIdx(2, 5, center, size),
+    findIdx(3, 4, center, size),
+    findIdx(3, 5, center, size),
+    findIdx(4, 4, center, size),
+    findIdx(4, 5, center, size),
+    findIdx(5, 4, center, size),
+    findIdx(5, 5, center, size),
+  ];
+  for (let i = 0; i < pattern.length; i++) {
+    if (pattern !== null) {
+      array[pattern[i]].alive = true;
+    }
+  }
+
+  const nextArr = simulate(array, size);
+  return {
+    type: GENERATE_GRID,
+    payload: { grid: array, nextGrid: nextArr, simulate: false },
   };
 };
 

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
 import {
-  randomGridArray,
+  pulsarGridArray,
   cycleLife,
   countSteps,
 } from "../../actions/gridAction";
@@ -19,10 +19,11 @@ const Display = () => {
     simulate,
     setTimeOut,
     steps,
+    generation,
   } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(randomGridArray(size));
+    dispatch(pulsarGridArray(size));
   }, [size]);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const Display = () => {
 
   return (
     <>
+      <h2>Generation: {generation}</h2>
       <div
         style={{
           display: "flex",
