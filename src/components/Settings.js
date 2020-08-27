@@ -1,7 +1,7 @@
 import React from "react";
-import GridSize from "./form/GridSize";
-import Controls from "./form/Controls";
-import GridTypes from "./form/GridTypes";
+import GridSize from "./setting/GridSize";
+import Controls from "./setting/Controls";
+import GridTypes from "./setting/GridTypes";
 const Settings = () => {
   return (
     <>
