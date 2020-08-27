@@ -79,7 +79,14 @@ export const simulate = (array, size) => {
 export const randomCentralPosition = (size) => {
   
   const randomOffset = Math.floor(Math.random() * 3);
-  const approxCenter = Math.floor((size * size) / 2);
+  let approxCenter = 0
+  // find center if odd number
+  if (size % 2) {
+    approxCenter = Math.floor((size * size) / 2);
+  // find center if even number
+  } else {
+    approxCenter = Math.floor((size * size) / 2) + (size/2);
+  }
   let calc = approxCenter + randomOffset
   if (Math.floor(Math.random() * 2)) {
     calc += randomOffset;

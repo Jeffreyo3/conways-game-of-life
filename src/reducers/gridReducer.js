@@ -9,12 +9,14 @@ import {
   COUNT_STEPS,
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
+  UPDATE_MAXSIZE,
 } from "../actions/actionTypes";
 
 export const initialState = {
   grid: [],
   nextGrid: [],
   size: 25,
+  maxSize: 50,
   sizeInput: 25,
   clickable: true,
   cycles: 100,
@@ -76,6 +78,13 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cycles: action.payload,
       };
+      case UPDATE_MAXSIZE:
+        return {
+          ...state,
+          size: state.size > action.payload ? action.payload : state.size,
+          input: state.size > action.payload ? action.payload : state.input,
+          maxSize: action.payload
+        }
     default:
       return state;
   }

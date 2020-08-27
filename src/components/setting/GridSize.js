@@ -4,7 +4,7 @@ import { setInput, setSize } from "../../actions/gridAction";
 
 const GridSize = () => {
   const dispatch = useDispatch();
-  const { sizeInput } = useSelector((state) => state);
+  const { sizeInput, maxSize } = useSelector((state) => state);
   const changeHandler = (e) => {
     e.preventDefault();
     dispatch(setInput(Number(e.target.value)));
@@ -16,11 +16,11 @@ const GridSize = () => {
   return (
     <form onSubmit={submitHandler}>
       <label>
-        Grid Size (max 50):
+        Grid Size (max {maxSize}):
         <input
           type="number"
           name="size"
-          max="50"
+          max={maxSize}
           onChange={changeHandler}
           value={sizeInput}
         />
