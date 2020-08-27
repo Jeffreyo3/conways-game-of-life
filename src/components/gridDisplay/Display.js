@@ -27,7 +27,7 @@ const Display = () => {
     if (window.innerWidth <= 500) {
       dispatch(updateMaxSize(25));
     }
-  });
+  }, []);
   useEffect(() => {
     if (size >= 25) {
       dispatch(pulsarGridArray(size));
