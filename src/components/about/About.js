@@ -6,7 +6,7 @@ const About = () => {
             <h3>About this Algorithm</h3>
             <div>
                 <h4>Conway's Game of Life</h4>
-                <p>Conway's Game of Life was created in 1970 by the British mathmetician, John Horton Conway. The player interacts with the game by creating an initial layout, and when executed, the game is capable of infinitely evolving. It is a turing complete algorithm that simulates cullular automata.</p>
+                <p>Conway's Game of Life was created in 1970 by the British mathmetician, John Horton Conway. The player interacts with the game by creating an initial layout, and when executed, the game is capable of infinitely evolving. It is a turing complete algorithm that simulates cellular automata.</p>
             </div>
             <div>
                 <h4>Cellular Automata</h4>
@@ -14,7 +14,7 @@ const About = () => {
             </div>
             <div>
                 <h4>Turing Completeness</h4>
-                <p>Simply put, turing completeness means that the system will be able to recognize and decide what to do with an arbitrary number of data items based on a set of rules. In the case of Conway's Game of life, we give it any size grid, and the system will be able to simulate each generation of life infinitely based on the rule set given.</p>
+                <p>Simply put, turing completeness means that the system will be able to recognize and decide what to do with an arbitrary number of data items based on a set of rules. In the case of Conway's Game of life, the user gives it any size grid, and the system will be able to simulate each generation of life infinitely based on the rule set given.</p>
             </div>
             <div>
                 <h4>Double Buffer</h4>
