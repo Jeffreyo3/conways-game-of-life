@@ -25,7 +25,7 @@ export const initialState = {
   simulate: false,
   steps: 0,
   generation: 1,
-  windowDimensions: {}
+  windowDimensions: {height:900, width:800}
 };
 
 export const reducer = (state = initialState, action) => {

@@ -28,18 +28,21 @@ const GridTypes = () => {
   };
   return (
     <form>
-      <label>
-        <input type="button" value="Clear Grid" onClick={clearGrid} />
-      </label>
-      <label>
-        <input type="button" value="Random Layout" onClick={randomGrid} />
-      </label>
-      <label>
-        <input type="button" value="Pulsar Oscillator" onClick={pulsarGrid} disabled={size<23} />
-      </label>
-      <label>
-        <input type="button" value="Hertz Oscillator" onClick={hertzGrid} disabled={size<20}/>
-      </label>
+      <label>Starting Grid: </label><br/>
+      <input type="button" value="Clear Grid" onClick={clearGrid} />
+      <input type="button" value="Random Layout" onClick={randomGrid} />
+      <input
+        type="button"
+        value="Pulsar Oscillator"
+        onClick={pulsarGrid}
+        disabled={size < 23}
+      />
+      <input
+        type="button"
+        value="Hertz Oscillator"
+        onClick={hertzGrid}
+        disabled={size < 20}
+      />
     </form>
   );
 };

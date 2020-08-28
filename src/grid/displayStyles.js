@@ -20,8 +20,8 @@ export const gridDisplay = (gridSize, windowWidth) => {
   } else {
     return {
       display: "grid",
-      gridTemplateColumns: `repeat(${gridSize}, 11px)`,
-      gridTemplateRows: `repeat(${gridSize}, 11px)`,
+      gridTemplateColumns: `repeat(${gridSize}, 12px)`,
+      gridTemplateRows: `repeat(${gridSize}, 12px)`,
     };
   }
 };
@@ -34,7 +34,7 @@ const cellSize = (windowWidth) => {
   } else if (windowWidth >= 500 && windowWidth < 800) {
     return "14px";
   } else {
-    return "11px";
+    return "12px";
   }
 };
 

@@ -1,0 +1,9 @@
+.left div {
+  padding-left: 3%;
+  padding-bottom: 5%;
+}
+@media (max-width: 800px) {
+  .left div {
+    padding-left: 0;
+  }
+}

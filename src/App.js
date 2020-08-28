@@ -10,10 +10,9 @@ import Rules from "./components/about/Rules";
 import About from "./components/about/About";
 
 function App() {
-  // since grid is dynamically rendered,
-  // cause App to re-render if window size is changed
   const winSize = useSelector((state) => state.windowDimensions);
   const dispatch = useDispatch();
+  // set initial window size to state
   React.useEffect(() => {
     dispatch(
       setDimensions({
@@ -22,6 +21,8 @@ function App() {
       })
     );
   }, []);
+  // since grid is dynamically rendered,
+  // cause App to re-render if window size is changed
   React.useEffect(() => {
     const timer = setTimeout(() => {
       window.addEventListener(
@@ -34,7 +35,6 @@ function App() {
         )
       );
     }, 1000);
-    console.log("Hi");
     return () => clearTimeout(timer);
   });
 
@@ -53,6 +53,7 @@ function App() {
       </header>
       <h2>{winSize.width}</h2>
       <div className="top">
+
         <div className="section left">
           <Display />
         </div>
@@ -60,10 +61,12 @@ function App() {
         <div className="section middle">
           <Settings />
         </div>
+
         <div className="section right">
           <Rules />
         </div>
-      </div>
+      </div> {/* close div class="top" */}
+
       <div className="section bottom">
         <About />
       </div>
