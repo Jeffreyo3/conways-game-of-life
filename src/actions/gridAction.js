@@ -10,6 +10,7 @@ import {
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
   UPDATE_MAXSIZE,
+  SET_DIMENSIONS
 } from "./actionTypes";
 import { simulate, randomCentralPosition, findIdx } from "../grid/gridHelpers";
 
@@ -287,3 +288,7 @@ export const updateCycles = (cycles) => {
 export const updateMaxSize = (newMax) => {
   return { type: UPDATE_MAXSIZE, payload: newMax };
 };
+
+export const setDimensions = windowObj => {
+  return { type: SET_DIMENSIONS, payload: windowObj}
+}

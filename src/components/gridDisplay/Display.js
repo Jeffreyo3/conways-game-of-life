@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
 import {
@@ -8,8 +9,7 @@ import {
   updateMaxSize,
   randomGridArray,
 } from "../../actions/gridAction";
-
-import { useSelector, useDispatch } from "react-redux";
+import './Display.css'
 
 const Display = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const Display = () => {
     setTimeOut,
     steps,
     generation,
+    windowDimensions
   } = useSelector((state) => state);
   useEffect(() => {
     if (window.innerWidth <= 500) {
@@ -53,7 +54,7 @@ const Display = () => {
     <>
       <h3>Generation: {generation}</h3>
       <div>
-        <div style={gridDisplay(size)}>
+        <div style={gridDisplay(size, windowDimensions.width)}>
           {grid.map((cell, idx) => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
