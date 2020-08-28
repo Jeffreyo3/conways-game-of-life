@@ -96,7 +96,7 @@ h6 {
 
 @media (max-width: 800px) {
   .left {
-    min-width: 375px;
+    min-width: 0;
     width: 100%;
   }
   .left div {

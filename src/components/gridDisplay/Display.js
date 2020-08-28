@@ -22,6 +22,7 @@ const Display = () => {
     setTimeOut,
     steps,
     generation,
+    windowDimensions
   } = useSelector((state) => state);
   useEffect(() => {
     if (window.innerWidth <= 500) {
@@ -53,7 +54,7 @@ const Display = () => {
     <>
       <h3>Generation: {generation}</h3>
       <div>
-        <div style={gridDisplay(size)}>
+        <div style={gridDisplay(size, windowDimensions.width)}>
           {grid.map((cell, idx) => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}

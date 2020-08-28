@@ -10,6 +10,7 @@ import {
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
   UPDATE_MAXSIZE,
+  SET_DIMENSIONS
 } from "../actions/actionTypes";
 
 export const initialState = {
@@ -24,10 +25,16 @@ export const initialState = {
   simulate: false,
   steps: 0,
   generation: 1,
+  windowDimensions: {}
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_DIMENSIONS:
+      return {
+        ...state,
+        windowDimensions: action.payload
+      }
     case GENERATE_GRID:
     case TOGGLE_LIFE:
       return {

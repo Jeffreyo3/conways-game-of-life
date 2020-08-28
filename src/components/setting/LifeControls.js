@@ -12,7 +12,9 @@ import {
 
 const LifeControls = () => {
   const dispatch = useDispatch();
-  const { nextGrid, size, simulate } = useSelector((state) => state);
+  const { nextGrid, size, simulate, steps, cycles } = useSelector(
+    (state) => state
+  );
 
   const stepClick = (e) => {
     e.preventDefault();
@@ -25,6 +27,9 @@ const LifeControls = () => {
 
   const simClick = (e) => {
     e.preventDefault();
+    if (steps === cycles) {
+      dispatch(resetSteps());
+    }
     dispatch(updateSimulation(true));
     dispatch(clickableOff());
   };

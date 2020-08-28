@@ -9,3 +9,4 @@ export const COUNT_STEPS = "COUNT_STEPS";
 export const UPDATE_TIMEOUT = "UPDATE_TIMEOUT";
 export const UPDATE_CYCLES = "UPDATE_CYCLES";
 export const UPDATE_MAXSIZE = "UPDATE_MAXSIZE";
+export const SET_DIMENSIONS = "SET_DIMENSIONS";
