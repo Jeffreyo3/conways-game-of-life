@@ -51,16 +51,8 @@ const Display = () => {
 
   return (
     <>
-      <h2>Generation: {generation}</h2>
-      <div
-        style={
-          {
-            // display: "flex",
-            // flexDirection: "row",
-            // justifyContent: "space-evenly",
-          }
-        }
-      >
+      <h3>Generation: {generation}</h3>
+      <div>
         <div style={gridDisplay(size)}>
           {grid.map((cell, idx) => {
             return <Cell key={idx} idx={idx} cell={cell} />;

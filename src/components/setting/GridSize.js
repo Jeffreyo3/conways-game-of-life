@@ -16,7 +16,7 @@ const GridSize = () => {
   return (
     <form onSubmit={submitHandler}>
       <label>
-        Grid Size (max {maxSize}):
+        Grid Size (max {maxSize}x{maxSize}):<br/>
         <input
           type="number"
           name="size"

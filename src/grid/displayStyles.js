@@ -32,7 +32,7 @@ export const cellDisplay = (alive, gridSize) => {
       width: `${cellSize(gridSize)}`,
       height: `${cellSize(gridSize)}`,
       background: "#27323a",
-      border: "1px solid grey",
+      border: "1px solid #a3f7bf42",
     };
   }
 };

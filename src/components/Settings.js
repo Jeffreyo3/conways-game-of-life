@@ -6,6 +6,7 @@ import LifeControls from './setting/LifeControls'
 const Settings = () => {
   return (
     <>
+    <h3>Customize!</h3>
       <GridSize />
       <Controls />
       <GridTypes />

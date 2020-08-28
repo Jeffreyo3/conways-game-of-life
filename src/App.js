@@ -21,16 +21,19 @@ function App() {
           </a>
         </nav>
       </header>
-      <div className="section">
-        <Settings />
+      <div className="top">
+        <div className="section left">
+          <Display />
+        </div>
+
+        <div className="section middle">
+          <Settings />
+        </div>
+        <div className="section right">
+          <Rules />
+        </div>
       </div>
-      <div className="section">
-        <Display />
-      </div>
-      <div className="section">
-        <Rules />
-      </div>
-      <div className="section">
+      <div className="section bottom">
         <About />
       </div>
     </div>
