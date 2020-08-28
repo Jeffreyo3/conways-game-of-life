@@ -44,29 +44,29 @@ const LifeControls = () => {
     <div className="mobile-controls">
       <ul>
         <li>
-          <a onClick={simClick}>
+          <button onClick={simClick}>
             <div className="icon">
               <FaPlay /> <FaPlay />
             </div>
             <div className="name">
               <p>Play</p>
             </div>
-          </a>
+          </button>
         </li>
         <div className="vertical-border" />
         <li>
-          <a onClick={pauseClick}>
+          <button onClick={pauseClick}>
             <div className="icon">
               <FaPause /> <FaPause />
             </div>
             <div className="name">
               <p>Pause</p>
             </div>
-          </a>
+          </button>
         </li>
         <div className="vertical-border" />
         <li>
-          <a onClick={stepClick}>
+          <button onClick={stepClick}>
             <div className="icon">
               <FiSkipForward />
               <FiSkipForward />
@@ -74,11 +74,11 @@ const LifeControls = () => {
             <div className="name">
               <p>Next Gen</p>
             </div>
-          </a>
+          </button>
         </li>
         <div className="vertical-border" />
         <li>
-          <a onClick={stopClick}>
+          <button onClick={stopClick}>
             <div className="icon">
               <FaStop />
               <FaStop />
@@ -86,7 +86,7 @@ const LifeControls = () => {
             <div className="name">
               <p>Stop</p>
             </div>
-          </a>
+          </button>
         </li>
       </ul>
     </div>

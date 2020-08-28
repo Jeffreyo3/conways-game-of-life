@@ -40,18 +40,20 @@
   .vertical-border {
     border-right: 1px solid #29a19c;
   }
-  .mobile-controls ul li a {
+  .mobile-controls ul li button {
     text-decoration: none;
     display: block;
+    background-color: transparent;
+    border: none;
   }
-  .mobile-controls ul li a .icon {
+  .mobile-controls ul li button .icon {
     width: 35px;
     height: 60px;
     text-align: center;
     overflow: hidden;
     margin: 0 auto 10px;
   }
-  .mobile-controls ul li a .icon svg {
+  .mobile-controls ul li button .icon svg {
     width: 100%;
     height: 100%;
     line-height: 40px;
@@ -59,19 +61,19 @@
     transition: 0.5s;
     color: #29a19c;
   }
-  .mobile-controls ul li a .icon svg:last-child {
+  .mobile-controls ul li button .icon svg:last-child {
     color: #a3f7bf;
   }
-  .mobile-controls ul li a:hover .icon svg {
+  .mobile-controls ul li button:hover .icon svg {
     transform: translateY(-100%);
   }
-  .mobile-controls ul li a .name {
+  .mobile-controls ul li button .name {
     position: relative;
     height: 20px;
     width: 100%;
     display: block;
   }
-  .mobile-controls ul li a .name p {
+  .mobile-controls ul li button .name p {
     display: block;
     position: relative;
     color: #29a19c;
