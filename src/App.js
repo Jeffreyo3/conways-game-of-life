@@ -46,12 +46,12 @@ function App() {
           <span className="header-divider" /> Game of Life
         </h1>
         <nav id="info">
-          <a href="#">
+          <a href="#about">
             <AiOutlineInfoCircle />
           </a>
         </nav>
       </header>
-      <h2>{winSize.width}</h2>
+      {/* <h2>{winSize.width}</h2> */}
       <div className="top">
 
         <div className="section left">
@@ -70,6 +70,9 @@ function App() {
       <div className="section bottom">
         <About />
       </div>
+      <footer>
+        <h6>© Copyright Jeffrey Orndorff 2020</h6>
+      </footer>
     </div>
   );
 }

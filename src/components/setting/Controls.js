@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateTimeOut, updateCycles } from "../../actions/gridAction";
+import "./Controls.css";
 
 const Controls = () => {
   const dispatch = useDispatch();
@@ -17,9 +18,10 @@ const Controls = () => {
   };
 
   return (
-    <>
-      <form>
+    <form>
+      <div className="sliders">
         <label>Speed:</label>
+  <p>-</p>
         <input
           type="range"
           name="size"
@@ -29,7 +31,11 @@ const Controls = () => {
           onChange={changeTimeOut}
           style={{ direction: "rtl" }}
         />
+        <p>+</p>
+      </div>
+      <div className="sliders">
         <label>Cycles:</label>
+        <p>-</p>
         <input
           type="range"
           name="size"
@@ -38,11 +44,12 @@ const Controls = () => {
           value={cycles}
           onChange={changeCycles}
         />
-      </form>
+        <p>+</p>
+      </div>
       <p>
         Auto-simulation Steps: {steps}/{cycles}
       </p>
-    </>
+    </form>
   );
 };
 export default Controls;
