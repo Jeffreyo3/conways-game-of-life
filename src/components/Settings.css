@@ -39,6 +39,10 @@ input[type="button"] {
   border-radius: 5px;
   margin: 0.5rem;
 }
+input[type="button"]:disabled {
+    background-color: #29a19d8a;
+    color: #263f44;
+  }
 
 #types {
   margin: 0.5rem 0;
