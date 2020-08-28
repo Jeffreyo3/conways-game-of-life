@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return(
         <section>
-            <h3>About this Algorithm</h3>
+            <h2>About this Algorithm</h2>
             <div>
                 <h4>Conway's Game of Life</h4>
                 <p>Conway's Game of Life was created in 1970 by the British mathmetician, John Horton Conway. The player interacts with the game by creating an initial layout, and when executed, the game is capable of infinitely evolving. It is a turing complete algorithm that simulates cellular automata.</p>

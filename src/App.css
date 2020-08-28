@@ -1,8 +1,16 @@
+/* Color Palette */
+/* Base/Background: #263f44 */
+/* Highlight: #f3c623 */
+/* Text: #29a19c */
+/* Hover/Accent: #a3f7bf */
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 100%;
+  background-color: #263f44;
+  color: #29a19c;
 }
 header {
   display: flex;
@@ -11,6 +19,7 @@ header {
   width: 100%;
   justify-content: space-evenly;
 }
+
 .header-divider {
   display: none;
 }
@@ -24,9 +33,6 @@ svg {
   width: 40px;
 }
 
-@media (max-width: 600px) {
-  
-}
 
 @media (max-width: 600px) {
   header {
@@ -36,7 +42,7 @@ svg {
     width: 75%;
     margin: 0 auto;
     text-align: center;
-    padding-left: 10%;
+    padding-left: 20%;
   }
   .header-divider {
     display: block;
@@ -44,6 +50,65 @@ svg {
   #info {
     display: flex;
     margin: auto 0;
-    padding-right: 10%
+    padding-right: 10%;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f3c623;
+}
+
+.top {
+  display: flex;
+  /* justify-content: space-between; */
+  
+  background-color: #27323a;
+}
+
+@media (max-width: 800px) {
+  .top {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.section {
+  padding-bottom: 2%;
+  /* border-radius: 10px; */
+}
+
+.left {
+  width: 30%;
+  min-width:380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2px;
+}
+.left div {
+  padding-left: 3%;
+  padding-bottom: 5%;
+}
+
+@media (max-width: 800px) {
+  .left {
+    padding-left: 0;
+    min-width: 375px;
+    width: 100%;
+  }
+}
+
+.middle {
+  padding-left: 5%;
+  /* padding-top: 6%; */
+  width: 30%;
+}
+
+.right {
+  width: 30%;
 }
