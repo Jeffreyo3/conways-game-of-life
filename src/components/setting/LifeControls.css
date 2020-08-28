@@ -1,0 +1,84 @@
+
+.mobile-controls {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #a3f7bf;
+  }
+  .mobile-controls ul {
+    width: 90%;
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    margin: 0;
+    padding: 20px 0;
+    background: #27323a;
+    display: flex;
+    justify-content: space-evenly;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* box-shadow: 5px 5px #29a19c inset; */
+    border: .5px solid #29a19c;
+    border-bottom: none;
+  }
+  @media(max-width: 800px) {
+    .mobile-controls ul {
+      width: 100%;
+      left: 0;
+      padding: 10px 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .mobile-controls ul li {
+    list-style: none;
+    text-align: center;
+    display: block;
+  }
+  
+  .vertical-border {
+    border-right: 1px solid #29a19c;
+  }
+  .mobile-controls ul li a {
+    text-decoration: none;
+    display: block;
+  }
+  .mobile-controls ul li a .icon {
+    width: 35px;
+    height: 60px;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto 10px;
+  }
+  .mobile-controls ul li a .icon svg {
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    font-size: 34px;
+    transition: 0.5s;
+    color: #29a19c;
+  }
+  .mobile-controls ul li a .icon svg:last-child {
+    color: #a3f7bf;
+  }
+  .mobile-controls ul li a:hover .icon svg {
+    transform: translateY(-100%);
+  }
+  .mobile-controls ul li a .name {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    display: block;
+  }
+  .mobile-controls ul li a .name p {
+    display: block;
+    position: relative;
+    color: #29a19c;
+  
+    line-height: 20px;
+    transition: 0.5s;
+  
+    overflow: hidden;
+  }
+  

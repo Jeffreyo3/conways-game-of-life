@@ -2,14 +2,14 @@ import React from "react";
 import GridSize from "./setting/GridSize";
 import Controls from "./setting/Controls";
 import GridTypes from "./setting/GridTypes";
-import MobileControls from './setting/MobileControls'
+import LifeControls from './setting/LifeControls'
 const Settings = () => {
   return (
     <>
       <GridSize />
-      {/* <Controls /> */}
+      <Controls />
       <GridTypes />
-      <MobileControls />
+      <LifeControls />
     </>
   );
 };

@@ -1,40 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  clickableOff,
-  cycleLife,
-  updateSimulation,
-  resetSteps,
   updateTimeOut,
   updateCycles,
 } from "../../actions/gridAction";
 
 const Controls = () => {
   const dispatch = useDispatch();
-  const { nextGrid, size, simulate, setTimeOut, cycles, steps } = useSelector(
+  const {  setTimeOut, cycles, steps } = useSelector(
     (state) => state
   );
 
-  const stepClick = (e) => {
-    e.preventDefault();
-    if (simulate) {
-      dispatch(updateSimulation(false));
-    }
-    dispatch(clickableOff());
-    dispatch(cycleLife(nextGrid, size));
-  };
-
-  const simClick = (e) => {
-    e.preventDefault();
-    dispatch(updateSimulation(true));
-    dispatch(resetSteps());
-    dispatch(clickableOff());
-  };
-
-  const stopClick = (e) => {
-    e.preventDefault();
-    dispatch(updateSimulation(false));
-  };
 
   const changeTimeOut = (e) => {
     e.preventDefault();
@@ -48,17 +24,6 @@ const Controls = () => {
 
   return (
     <>
-      <form>
-        <label>
-          <input type="button" value="Step forward" onClick={stepClick} />
-        </label>
-        <label>
-          <input type="button" value="Run Simulation" onClick={simClick} />
-        </label>
-        <label>
-          <input type="button" value="Stop Simulation" onClick={stopClick} />
-        </label>
-      </form>
       <form>
         <label>
           Speed:
@@ -85,7 +50,7 @@ const Controls = () => {
         </label>
       </form>
       <p>
-        Simulation Steps: {steps}/{cycles}
+        Auto-simulation Steps: {steps}/{cycles}
       </p>
     </>
   );
