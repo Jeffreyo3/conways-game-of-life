@@ -9,7 +9,7 @@ import {
   updateMaxSize,
   randomGridArray,
 } from "../../actions/gridAction";
-import './Display.css'
+import "./Display.css";
 
 const Display = () => {
   const dispatch = useDispatch();
@@ -22,11 +22,20 @@ const Display = () => {
     setTimeOut,
     steps,
     generation,
-    windowDimensions
+    windowDimensions,
   } = useSelector((state) => state);
   useEffect(() => {
     if (window.innerWidth <= 500) {
       dispatch(updateMaxSize(25));
+    } else if (window.innerWidth > 500 && window.innerWidth <= 1300) {
+      dispatch(updateMaxSize(30));
+    } else if (
+      window.innerWidth > 1300 &&
+      window.innerWidth <= 1600
+    ) {
+      dispatch(updateMaxSize(35));
+    } else {
+      dispatch(updateMaxSize(50));
     }
   }, []);
   useEffect(() => {

@@ -22,11 +22,13 @@
   }
   @media(max-width: 800px) {
     .mobile-controls ul {
-      width: 100%;
-      left: 0;
+      width: 101%;
+      left: -1%;
       padding: 10px 0;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
+      border-left: none;
+      border-right: none;
     }
   }
 

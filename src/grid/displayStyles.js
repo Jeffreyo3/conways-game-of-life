@@ -1,11 +1,12 @@
 export const gridDisplay = (gridSize, windowWidth) => {
-  if (windowWidth >= 1500) {
-    return {
-      display: "grid",
-      gridTemplateColumns: `repeat(${gridSize}, 18px)`,
-      gridTemplateRows: `repeat(${gridSize}, 18px)`,
-    };
-  } else if (windowWidth >= 800 && windowWidth < 1500) {
+  // if (windowWidth >= 1500) {
+  //   return {
+  //     display: "grid",
+  //     gridTemplateColumns: `repeat(${gridSize}, 18px)`,
+  //     gridTemplateRows: `repeat(${gridSize}, 18px)`,
+  //   };
+  // } else 
+  if (windowWidth >= 800) {
     return {
       display: "grid",
       gridTemplateColumns: `repeat(${gridSize}, 15px)`,
@@ -27,9 +28,10 @@ export const gridDisplay = (gridSize, windowWidth) => {
 };
 
 const cellSize = (windowWidth) => {
-  if (windowWidth >= 1500) {
-    return "18px";
-  } else if (windowWidth >= 800 && windowWidth < 1500) {
+  // if (windowWidth >= 1500) {
+  //   return "18px";
+  // } else
+   if (windowWidth >= 800) {
     return "15px";
   } else if (windowWidth >= 500 && windowWidth < 800) {
     return "14px";
