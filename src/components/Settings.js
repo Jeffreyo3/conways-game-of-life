@@ -9,10 +9,12 @@ const Settings = () => {
   return (
     <>
       <h3>Customize!</h3>
+      <div class="settings">
       <GridSize />
       <GridTypes />
       <Controls />
       <LifeControls />
+      </div>
     </>
   );
 };

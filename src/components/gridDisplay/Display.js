@@ -37,14 +37,14 @@ const Display = () => {
     } else {
       dispatch(updateMaxSize(50));
     }
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     if (size >= 25) {
       dispatch(pulsarGridArray(size));
     } else {
       dispatch(randomGridArray(size));
     }
-  }, [size]);
+  }, [dispatch, size]);
 
   useEffect(() => {
     let interval = null;

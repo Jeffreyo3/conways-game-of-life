@@ -21,11 +21,11 @@ const Controls = () => {
     <form>
       <div className="sliders">
         <label>Speed:</label>
-  <p>-</p>
+        <p>-</p>
         <input
           type="range"
           name="size"
-          min="50"
+          min="10"
           max="1500"
           value={setTimeOut}
           onChange={changeTimeOut}
@@ -46,7 +46,7 @@ const Controls = () => {
         />
         <p>+</p>
       </div>
-      <p>
+      <p style={{ marginBlockStart: "0"}}>
         Auto-simulation Steps: {steps}/{cycles}
       </p>
     </form>

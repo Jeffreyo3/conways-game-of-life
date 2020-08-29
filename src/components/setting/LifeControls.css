@@ -17,7 +17,7 @@
     justify-content: space-evenly;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border: .5px solid #29a19c;
+    border: .5px solid #f3c623;
     border-bottom: none;
   }
   @media(max-width: 800px) {
@@ -39,7 +39,7 @@
   }
   
   .vertical-border {
-    border-right: 1px solid #29a19c;
+    border-right: 1px solid #f3c623;
   }
   .mobile-controls ul li button {
     text-decoration: none;
