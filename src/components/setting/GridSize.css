@@ -25,11 +25,58 @@ input[type="submit"] {
 }
 
 @media (max-width:800px) {
+    .size-input {
+        width: 90%;
+        margin: 1.5rem auto 0;
+    }
     input[type="number"] {
-        width: 40%;
+        margin: 0;
+        width: 49.6%;
+        height: 3rem;
     }
     input[type="submit"] {
-        width: 50%;
+        width: 49.7%;
+        height: 3.21rem;
+        transform: translateY(-1%);
+    }
+}
+
+@media (max-width:680px) {
+    input[type="number"] {
+        width: 49.6%;
+    }
+    input[type="submit"] {
+        width: 49.5%;
+    }
+}
+
+@media (max-width:540px) {
+    input[type="number"] {
+        width: 49.4%;
+    }
+    input[type="submit"] {
+        width: 49.4%;
+    }
+}
+
+@media (max-width:430px) {
+    input[type="number"] {
+        width: 49.2%;
+    }
+    input[type="submit"] {
+        width: 49.2%;
+    }
+}
+
+@media (max-width:330px) {
+    .size-input {
+        min-width:230px;
+    }
+    input[type="number"] {
+        width: 49%;
+    }
+    input[type="submit"] {
+        width: 49%;
     }
 }
 
