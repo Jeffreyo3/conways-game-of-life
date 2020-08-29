@@ -11,3 +11,7 @@ section {
     padding: 0 2rem 0 1.5rem;
   }
 }
+
+.about {
+  max-width: 900px;
+}

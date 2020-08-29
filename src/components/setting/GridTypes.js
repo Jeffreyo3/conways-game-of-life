@@ -6,6 +6,7 @@ import {
   hertzOscillator,
 } from "../../actions/gridAction";
 import { useSelector, useDispatch } from "react-redux";
+import './GridTypes.css'
 
 const GridTypes = () => {
   const dispatch = useDispatch();

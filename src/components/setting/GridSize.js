@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setInput, setSize } from "../../actions/gridAction";
+import "./GridSize.css";
 
 const GridSize = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,13 @@ const GridSize = () => {
     dispatch(setSize(sizeInput));
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className="grid-size">
       <label>
-        Grid Size (max {maxSize}x{maxSize}): {sizeInput}x{sizeInput}
-        <br />
+        Grid Size: {sizeInput}x{sizeInput}
       </label>
+      <p>
+        (Screen max {maxSize}x{maxSize})
+      </p>
       <input
         type="number"
         name="size"
@@ -29,6 +32,8 @@ const GridSize = () => {
       />
 
       <input type="submit" value="Change" />
+
+      <br />
     </form>
   );
 };

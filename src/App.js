@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setDimensions } from "./actions/gridAction";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import "./App.css";
@@ -10,7 +10,6 @@ import Rules from "./components/about/Rules";
 import About from "./components/about/About";
 
 function App() {
-  const winSize = useSelector((state) => state.windowDimensions);
   const dispatch = useDispatch();
   // set initial window size to state
   React.useEffect(() => {
@@ -20,7 +19,7 @@ function App() {
         width: window.innerWidth,
       })
     );
-  }, []);
+  }, [dispatch]);
   // since grid is dynamically rendered,
   // cause App to re-render if window size is changed
   React.useEffect(() => {
@@ -35,8 +34,9 @@ function App() {
         )
       );
     }, 1000);
+    console.log('hi')
     return () => clearTimeout(timer);
-  });
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -51,7 +51,6 @@ function App() {
           </a>
         </nav>
       </header>
-      {/* <h2>{winSize.width}</h2> */}
       <div className="top">
 
         <div className="section left">

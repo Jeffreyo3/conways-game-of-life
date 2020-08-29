@@ -7,10 +7,10 @@ export default function Cell({ cell, idx }) {
   const dispatch = useDispatch();
   const { grid, clickable, size, windowDimensions } = useSelector((state) => state);
 
-  const [color, setColor] = React.useState(cellDisplay(cell.alive, size));
+  const [color, setColor] = React.useState(cellDisplay(cell.alive, windowDimensions.width));
   React.useEffect(() => {
     setColor(cellDisplay(cell.alive, windowDimensions.width));
-  }, [cell.alive, size]);
+  }, [cell.alive, windowDimensions]);
 
   const onClick = (e) => {
     e.preventDefault();
