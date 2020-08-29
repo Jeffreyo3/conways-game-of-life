@@ -34,7 +34,7 @@ function App() {
         )
       );
     }, 1000);
-    console.log('hi')
+    // console.log('hi')
     return () => clearTimeout(timer);
   }, [dispatch]);
 

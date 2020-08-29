@@ -11,7 +11,7 @@ const About = () => {
             </div>
             <div>
                 <h4>Cellular Automata</h4>
-                <p>Cellular automation (CA) are discrete, abstract computational systems. They display complex behavior based on a relatively small set of rules an a group of simple homogeneous cells. Using the set rules, cellular autamta will run an algorithm and can simulate turing completeness.</p>
+                <p>Cellular automation (CA) are discrete, abstract computational systems. They display complex behavior based on a relatively small set of rules on a group of simple homogeneous cells. Using the set rules, cellular autamta will run an algorithm and can simulate turing completeness.</p>
             </div>
             <div>
                 <h4>Turing Completeness</h4>
