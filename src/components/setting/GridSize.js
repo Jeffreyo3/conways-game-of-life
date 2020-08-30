@@ -32,7 +32,8 @@ const GridSize = () => {
         value={sizeInput}
       />
 
-      <input type="submit" value="Change" />
+      {/* <input type="submit" value="Change" /> */}
+      <button type="submit" className="submit-size" value="Change">Change</button>
       </div>
       <br />
     </form>

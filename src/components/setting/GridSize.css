@@ -13,7 +13,7 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   opacity: 0;
 }
-input[type="submit"] {
+.submit-size {
   border: none;
   background-color: #29a19c;
   color: #a3f7bf;
@@ -34,7 +34,7 @@ input[type="submit"] {
         width: 49.6%;
         height: 3rem;
     }
-    input[type="submit"] {
+    .submit-size {
         width: 49.7%;
         height: 3.21rem;
         transform: translateY(-1%);
@@ -45,7 +45,7 @@ input[type="submit"] {
     input[type="number"] {
         width: 49.6%;
     }
-    input[type="submit"] {
+    .submit-size {
         width: 49.5%;
     }
 }
@@ -54,7 +54,7 @@ input[type="submit"] {
     input[type="number"] {
         width: 49.4%;
     }
-    input[type="submit"] {
+    .submit-size {
         width: 49.4%;
     }
 }
@@ -63,7 +63,7 @@ input[type="submit"] {
     input[type="number"] {
         width: 49.2%;
     }
-    input[type="submit"] {
+    .submit-size {
         width: 49.2%;
     }
 }
@@ -75,7 +75,7 @@ input[type="submit"] {
     input[type="number"] {
         width: 49%;
     }
-    input[type="submit"] {
+    .submit-size {
         width: 49%;
     }
 }

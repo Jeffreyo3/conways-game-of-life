@@ -32,7 +32,7 @@ const GridTypes = () => {
       <label>Starting Grid: </label>
       <br />
       <div id="types">
-        <input type="button" value="Clear Grid" onClick={clearGrid} />
+        {/* <input type="button" value="Clear Grid" onClick={clearGrid} />
         <input type="button" value="Random Layout" onClick={randomGrid} />
         <input
           type="button"
@@ -45,7 +45,21 @@ const GridTypes = () => {
           value="Hertz Oscillator"
           onClick={hertzGrid}
           disabled={size < 20}
-        />
+        /> */}
+        <button className="grid-type" value="Clear Grid" onClick={clearGrid}>Clear Grid</button>
+        <button className="grid-type" value="Random Layout" onClick={randomGrid}>Random Layout</button>
+        <button
+          className="grid-type"
+          value="Pulsar Oscillator"
+          onClick={pulsarGrid}
+          disabled={size < 23}
+        >Pulsar Oscillator</button>
+        <button
+          className="grid-type"
+          value="Hertz Oscillator"
+          onClick={hertzGrid}
+          disabled={size < 20}
+        >Hertz Oscillator</button>
       </div>
     </form>
   );

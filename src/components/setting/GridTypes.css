@@ -1,4 +1,4 @@
-input[type="button"] {
+.grid-type {
   border: none;
   background-color: #29a19c;
   color: #a3f7bf;
@@ -7,7 +7,7 @@ input[type="button"] {
   border-radius: 5px;
   margin: 0.5rem;
 }
-input[type="button"]:disabled {
+.grid-type:disabled {
   background-color: #29a19d8a;
   color: #263f44;
 }
@@ -19,7 +19,7 @@ input[type="button"]:disabled {
 }
 
 @media (max-width: 800px) {
-  #types input[type="button"] {
+  #types .grid-type {
     width: auto;
     height: 3.2rem;
   }
