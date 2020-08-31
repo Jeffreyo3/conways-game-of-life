@@ -29,21 +29,14 @@ const Display = () => {
       dispatch(updateMaxSize(25));
     } else if (window.innerWidth > 500 && window.innerWidth <= 1300) {
       dispatch(updateMaxSize(30));
-    } else if (
-      window.innerWidth > 1300 &&
-      window.innerWidth <= 1600
-    ) {
+    } else if (window.innerWidth > 1300 && window.innerWidth <= 1600) {
       dispatch(updateMaxSize(35));
     } else {
       dispatch(updateMaxSize(50));
     }
   }, [dispatch]);
   useEffect(() => {
-    if (size >= 25) {
-      dispatch(pulsarGridArray(size));
-    } else {
-      dispatch(randomGridArray(size));
-    }
+    dispatch(randomGridArray(size));
   }, [dispatch, size]);
 
   useEffect(() => {
