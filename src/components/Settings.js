@@ -9,7 +9,7 @@ const Settings = () => {
   return (
     <>
       <h3>Customize!</h3>
-      <div class="settings">
+      <div className="settings">
       <GridSize />
       <GridTypes />
       <Controls />

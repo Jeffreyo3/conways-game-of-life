@@ -22,7 +22,7 @@ const GridSize = () => {
       <p>
         (Screen max {maxSize}x{maxSize})
       </p>
-      <div class="size-input">
+      <div className="size-input">
       <input
         type="number"
         name="size"

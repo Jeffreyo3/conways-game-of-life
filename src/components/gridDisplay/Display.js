@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Cell from "./Cell";
 import { gridDisplay } from "../../grid/displayStyles";
 import {
-  pulsarGridArray,
   cycleLife,
   countSteps,
   updateMaxSize,
@@ -50,7 +49,7 @@ const Display = () => {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [simulate, steps]);
+  }, [simulate, setTimeOut, steps]);
 
   return (
     <>
@@ -61,11 +60,6 @@ const Display = () => {
             return <Cell key={idx} idx={idx} cell={cell} />;
           })}
         </div>
-        {/* <div style={gridDisplay(size)}>
-          {nextGrid.map((cell, idx) => {
-            return <Cell key={idx} idx={idx} cell={cell} />;
-          })}
-        </div> */}
       </div>
     </>
   );

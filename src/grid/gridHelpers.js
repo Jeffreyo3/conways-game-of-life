@@ -34,46 +34,68 @@ export const findNeighborIdx = (size, idx, array) => {
   };
 };
 
-const evalLivingNeighbors = (neighbors) => {
-  let neighborhoodPop = 0;
-  Object.values(neighbors).forEach((neighbor) => {
-    if (neighbor.alive) {
-      neighborhoodPop++;
-    }
-  });
-  return neighborhoodPop;
-};
+// const evalLivingNeighbors = (neighbors) => {
+//   let neighborhoodPop = 0;
+//   Object.values(neighbors).forEach((neighbor) => {
+//     if (neighbor.alive) {
+//       neighborhoodPop++;
+//     }
+//   });
+//   return neighborhoodPop;
+// };
 
 const countNeighbors = (size, idx, array) => {
-  let count = 0
-  if (array[findIdx(2, 2, idx, size)] && array[findIdx(2, 2, idx, size)].alive) {
-    count++
+  let count = 0;
+  if (
+    array[findIdx(2, 2, idx, size)] &&
+    array[findIdx(2, 2, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(2, 1, idx, size)] && array[findIdx(2, 1, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(2, 1, idx, size)] &&
+    array[findIdx(2, 1, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(2, 0, idx, size)] && array[findIdx(2, 0, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(2, 0, idx, size)] &&
+    array[findIdx(2, 0, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(1, 2, idx, size)] && array[findIdx(1, 2, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(1, 2, idx, size)] &&
+    array[findIdx(1, 2, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(1, 0, idx, size)] && array[findIdx(1, 0, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(1, 0, idx, size)] &&
+    array[findIdx(1, 0, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(0, 2, idx, size)] && array[findIdx(0, 2, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(0, 2, idx, size)] &&
+    array[findIdx(0, 2, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(0, 1, idx, size)] && array[findIdx(0, 1, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(0, 1, idx, size)] &&
+    array[findIdx(0, 1, idx, size)].alive
+  ) {
+    count++;
   }
-  if (array[findIdx(0, 0, idx, size)] && array[findIdx(0, 0, idx, size)].alive) {
-    count++
+  if (
+    array[findIdx(0, 0, idx, size)] &&
+    array[findIdx(0, 0, idx, size)].alive
+  ) {
+    count++;
   }
-// console.log(count)
-return count
-
-}
+  return count;
+};
 
 export const simulate = (array, size) => {
   const next = [];
@@ -81,7 +103,7 @@ export const simulate = (array, size) => {
     // const neighbors = findNeighborIdx(size, idx, array);
     // const population = evalLivingNeighbors(neighbors);
 
-    const population = countNeighbors(size, idx, array)
+    const population = countNeighbors(size, idx, array);
 
     // Death cell rules
     if (cell.alive === false) {
@@ -110,17 +132,16 @@ export const simulate = (array, size) => {
 };
 
 export const randomCentralPosition = (size) => {
-
   const randomOffset = Math.floor(Math.random() * 3);
-  let approxCenter = 0
+  let approxCenter = 0;
   // find center if odd number
   if (size % 2) {
     approxCenter = Math.floor((size * size) / 2);
     // find center if even number
   } else {
-    approxCenter = Math.floor((size * size) / 2) + (size / 2);
+    approxCenter = Math.floor((size * size) / 2) + size / 2;
   }
-  let calc = approxCenter + randomOffset
+  let calc = approxCenter + randomOffset;
   if (Math.floor(Math.random() * 2)) {
     calc += randomOffset;
   } else {
@@ -131,5 +152,5 @@ export const randomCentralPosition = (size) => {
   } else {
     calc += size;
   }
-  return calc
+  return calc;
 };
