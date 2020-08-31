@@ -55,7 +55,7 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 49.4%;
     }
     .submit-size {
-        width: 49.4%;
+        width: 49%;
     }
 }
 
@@ -64,7 +64,7 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 49.2%;
     }
     .submit-size {
-        width: 49.2%;
+        width: 49%;
     }
 }
 

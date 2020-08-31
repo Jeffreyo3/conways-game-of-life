@@ -44,11 +44,44 @@ const evalLivingNeighbors = (neighbors) => {
   return neighborhoodPop;
 };
 
+const countNeighbors = (size, idx, array) => {
+  let count = 0
+  if (array[findIdx(2, 2, idx, size)] && array[findIdx(2, 2, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(2, 1, idx, size)] && array[findIdx(2, 1, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(2, 0, idx, size)] && array[findIdx(2, 0, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(1, 2, idx, size)] && array[findIdx(1, 2, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(1, 0, idx, size)] && array[findIdx(1, 0, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(0, 2, idx, size)] && array[findIdx(0, 2, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(0, 1, idx, size)] && array[findIdx(0, 1, idx, size)].alive) {
+    count++
+  }
+  if (array[findIdx(0, 0, idx, size)] && array[findIdx(0, 0, idx, size)].alive) {
+    count++
+  }
+// console.log(count)
+return count
+
+}
+
 export const simulate = (array, size) => {
   const next = [];
   array.forEach((cell, idx) => {
-    const neighbors = findNeighborIdx(size, idx, array);
-    const population = evalLivingNeighbors(neighbors);
+    // const neighbors = findNeighborIdx(size, idx, array);
+    // const population = evalLivingNeighbors(neighbors);
+
+    const population = countNeighbors(size, idx, array)
 
     // Death cell rules
     if (cell.alive === false) {
@@ -77,24 +110,24 @@ export const simulate = (array, size) => {
 };
 
 export const randomCentralPosition = (size) => {
-  
+
   const randomOffset = Math.floor(Math.random() * 3);
   let approxCenter = 0
   // find center if odd number
   if (size % 2) {
     approxCenter = Math.floor((size * size) / 2);
-  // find center if even number
+    // find center if even number
   } else {
-    approxCenter = Math.floor((size * size) / 2) + (size/2);
+    approxCenter = Math.floor((size * size) / 2) + (size / 2);
   }
   let calc = approxCenter + randomOffset
   if (Math.floor(Math.random() * 2)) {
     calc += randomOffset;
   } else {
-    calc -= randomOffset*2;
+    calc -= randomOffset * 2;
   }
   if (Math.floor(Math.random() * 2)) {
-    calc -= size*2;
+    calc -= size * 2;
   } else {
     calc += size;
   }
