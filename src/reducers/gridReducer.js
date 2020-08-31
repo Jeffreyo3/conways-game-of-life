@@ -4,13 +4,14 @@ import {
   SET_INPUT,
   TOGGLE_LIFE,
   CLICKABLE_OFF,
+  CLICKABLE_ON,
   CYCLE_LIFE,
   UPDATE_SIMULATE,
   COUNT_STEPS,
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
   UPDATE_MAXSIZE,
-  SET_DIMENSIONS
+  SET_DIMENSIONS,
 } from "../actions/actionTypes";
 
 export const initialState = {
@@ -25,7 +26,7 @@ export const initialState = {
   simulate: false,
   steps: 0,
   generation: 1,
-  windowDimensions: {height:900, width:800}
+  windowDimensions: { height: 900, width: 800 },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -33,8 +34,8 @@ export const reducer = (state = initialState, action) => {
     case SET_DIMENSIONS:
       return {
         ...state,
-        windowDimensions: action.payload
-      }
+        windowDimensions: action.payload,
+      };
     case GENERATE_GRID:
     case TOGGLE_LIFE:
       return {
@@ -58,6 +59,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         clickable: false,
+      };
+    case CLICKABLE_ON:
+      return {
+        ...state,
+        clickable: true,
       };
     case CYCLE_LIFE:
       return {
@@ -85,13 +91,13 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cycles: action.payload,
       };
-      case UPDATE_MAXSIZE:
-        return {
-          ...state,
-          size: state.size > action.payload ? action.payload : state.size,
-          input: state.size > action.payload ? action.payload : state.input,
-          maxSize: action.payload
-        }
+    case UPDATE_MAXSIZE:
+      return {
+        ...state,
+        size: state.size > action.payload ? action.payload : state.size,
+        input: state.size > action.payload ? action.payload : state.input,
+        maxSize: action.payload,
+      };
     default:
       return state;
   }

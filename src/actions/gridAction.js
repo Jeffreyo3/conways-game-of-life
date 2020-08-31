@@ -4,13 +4,14 @@ import {
   SET_INPUT,
   TOGGLE_LIFE,
   CLICKABLE_OFF,
+  CLICKABLE_ON,
   CYCLE_LIFE,
   UPDATE_SIMULATE,
   COUNT_STEPS,
   UPDATE_TIMEOUT,
   UPDATE_CYCLES,
   UPDATE_MAXSIZE,
-  SET_DIMENSIONS
+  SET_DIMENSIONS,
 } from "./actionTypes";
 import { simulate, randomCentralPosition, findIdx } from "../grid/gridHelpers";
 
@@ -257,6 +258,10 @@ export const clickableOff = () => {
   return { type: CLICKABLE_OFF };
 };
 
+export const clickableOn = () => {
+  return { type: CLICKABLE_ON };
+};
+
 export const cycleLife = (nextGrid, size) => {
   const nextNextGrid = simulate(nextGrid, size);
   return {
@@ -289,6 +294,6 @@ export const updateMaxSize = (newMax) => {
   return { type: UPDATE_MAXSIZE, payload: newMax };
 };
 
-export const setDimensions = windowObj => {
-  return { type: SET_DIMENSIONS, payload: windowObj}
-}
+export const setDimensions = (windowObj) => {
+  return { type: SET_DIMENSIONS, payload: windowObj };
+};

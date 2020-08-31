@@ -8,6 +8,7 @@ import {
   cycleLife,
   updateSimulation,
   resetSteps,
+  clickableOn,
 } from "../../actions/gridAction";
 
 const LifeControls = () => {
@@ -43,6 +44,7 @@ const LifeControls = () => {
     e.preventDefault();
     dispatch(updateSimulation(false));
     dispatch(resetSteps());
+    dispatch(clickableOn());
   };
 
   return (
