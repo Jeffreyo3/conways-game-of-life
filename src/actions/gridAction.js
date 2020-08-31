@@ -23,7 +23,7 @@ export const randomGridArray = (size) => {
       array.push({
         column: j + 1,
         row: i + 1,
-        alive: Math.floor(Math.random() * 2 - 0.75) === 1 ? true : false,
+        alive: Math.floor(Math.random() * 2 - 0.55) === 1 ? true : false,
       });
     }
   }
