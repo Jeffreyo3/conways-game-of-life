@@ -47,18 +47,18 @@ informational repo in yours.
 
 * Student should be able to create a unique, high-quality project that
   can be added to a professional portfolio
-* [Student should be able to describe the rules of Conway’s “Game of
-  Life”](objectives/rules-game-life)
-* [Student should be able to explain what cellular automata are and
+* Student should be able to describe the rules of Conway’s “Game of
+  Life”
+* Student should be able to explain what cellular automata are and
   describe how they are useful in real
-  life](objectives/explain-describe-ca)
-* [Student should be able to correctly analyze the ‘Turing Completeness’
-  of Conway’s “Game of Life”](objectives/turing-complete)
+  life
+* Student should be able to correctly analyze the ‘Turing Completeness’
+  of Conway’s “Game of Life”
 * Student should be able to implement a visualization of Conway’s “Game
   of Life” using technologies related to their specific
   track.
-* [Student should be able to utilize "double buffering" to implement
-  the game](objectives/double-buffer)
+* Student should be able to utilize "double buffering" to implement
+  the game
 
 ## MVP Features
 
@@ -129,8 +129,6 @@ Implement at least 3 of the following features:
 * Given a specific generation, calculate the configuration of cells at
   that point in time, and jump to that state, bypassing animation (i.e.
   skip ahead _n_ generations).
-* If you have an idea for a custom feature on this list, run it by your
-  TL or instructor
 
 #### About
 
@@ -144,48 +142,14 @@ Implement at least 3 of the following features:
 * Deploy your app to a hosting service or, for iOS, to TestFlight (or
   the App Store!). Web devs can see [more deployment info
   here](resources/web/deployment).
-* Write a how-to guide or blog post that walks readers through the
-  work you did to implement your project
-* Expand your simulation into the third dimension. Google `3D Conways
-  Life`. Google for how to do 3D stuff on your platform. Web users might
-  check out [3D-ThreeJS](https://github.com/LambdaSchool/3D-ThreeJS),
-  and iOS might look at [SceneKit](https://developer.apple.com/scenekit/).
-* Explore alternate algorithms for finding the nth generation, such
-  as [Hashlife](https://en.wikipedia.org/wiki/Hashlife)
 
-## Sample Wireframe
-
-Example wireframes here. _This is only one possible layout. You can use
-any layout you come up with, as long as it completes MVP._
-
-We encourage you to be creative with your presentation and make it your
-own.
-
-### Mobile
-
-iOS example, could also inspire mobile web.
-
-![wireframe](resources/ios/game-of-life-iOS-mock-1.png)
-![wireframe](resources/ios/game-of-life-iOS-mock-2.png)
-
-### Desktop/Tablet
-
-![wireframe](wireframes/wireframe_1.png)
-
-
-## Code and Repo Quality
-
-Though this is not currently a requirement, it is a strong suggestion.
 
 ### Code
-
-* Make your code look sharp and professional if you think anyone will
-  see it.
-  * Comments that say what part of the problem a function or block of
+* Comments that say what part of the problem a function or block of
     code solves.
-    * Only comment on what a single line does if that single line is
+  * Only comment on what a single line does if that single line is
       unclear.
-  * Blank lines to visually break up logical sections of code, analogous
+* Blank lines to visually break up logical sections of code, analogous
     to paragraph breaks.
 
 ### Repo
@@ -200,38 +164,3 @@ Though this is not currently a requirement, it is a strong suggestion.
   * Exceptional difficulties and solutions, if any.
   * TODO list/wishlist. What do you want to add to it if you have more
     time?
-
-## Rubric
-
-**Your simulation will receive a 2 when it satisfies the following:**
-
-   1. Display includes a text area that shows the current generation of
-      cells being displayed
-   2. Display includes a grid of cells, at least 25x25, that can be
-      toggled to be _alive_ or _dead_
-   3. Display includes working buttons that start / stop the animation
-      and clear the grid
-   4. Algorithm to generate new generations of cells correctly
-      implemented
-   5. At least 3 features from ***Custom Features*** section
-      successfully implemented
-   6. Application includes a section outlining the rules to Conway's
-      "Game of Life"
-
-**Your simulation will receive a 3 when it satisfies all of the above
-requirements AND implements one of the above stretch goals.**
-
-## Track-Specific Help
-
-Channels for help that's about your specific technologies, if the TLs
-and/or instructor doesn't have enough knowledge in that area.
-
-* DS: Your cohort channel
-* iOS: #ios_help
-* Web: Your cohort channel
-
-## Additional Resources
-
-For various platforms:
-
-* [Resources](resources/)
