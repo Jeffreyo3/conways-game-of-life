@@ -1,26 +1,27 @@
 .grid-type {
-  border: none;
-  background-color: #29a19c;
-  color: #a3f7bf;
-  width: 8.15rem;
-  height: 2.1rem;
-  border-radius: 5px;
-  margin: 0.5rem;
+    border: 1px solid #29a19c;
+    background-color: #a3f7bf;
+    color: #263f44;
+    font-weight: bold;
+    width: 8.15rem;
+    height: 2.1rem;
+    border-radius: 5px;
+    margin: 0.5rem;
 }
 .grid-type:disabled {
-  background-color: #29a19d8a;
-  color: #263f44;
+    background-color: #29a19d8a;
+    color: #263f44;
 }
 
 #types {
-  margin: 0.5rem 0;
-  display: flex;
-  flex-direction: column;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 800px) {
-  #types .grid-type {
-    width: auto;
-    height: 3.2rem;
-  }
+    #types .grid-type {
+        width: auto;
+        height: 3.2rem;
+    }
 }

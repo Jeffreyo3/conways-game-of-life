@@ -1,11 +1,10 @@
-
 .mobile-controls {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     background: #a3f7bf;
-  }
-  .mobile-controls ul {
+}
+.mobile-controls ul {
     width: 90%;
     position: fixed;
     bottom: 0;
@@ -17,72 +16,71 @@
     justify-content: space-evenly;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    border: .5px solid #f3c623;
+    border: 0.5px solid #f3c623;
     border-bottom: none;
-  }
-  @media(max-width: 800px) {
+}
+@media (max-width: 800px) {
     .mobile-controls ul {
-      width: 101%;
-      left: -1%;
-      padding: 10px 0;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-left: none;
-      border-right: none;
+        width: 101%;
+        left: -1%;
+        padding: 10px 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-left: none;
+        border-right: none;
     }
-  }
+}
 
-  .mobile-controls ul li {
+.mobile-controls ul li {
     list-style: none;
     text-align: center;
     display: block;
-  }
-  
-  .vertical-border {
+}
+
+.vertical-border {
     border-right: 1px solid #f3c623;
-  }
-  .mobile-controls ul li button {
+}
+.mobile-controls ul li button {
     text-decoration: none;
     display: block;
     background-color: transparent;
     border: none;
     outline: none;
-  }
-  .mobile-controls ul li button .icon {
+}
+.mobile-controls ul li button .icon {
     width: 35px;
     height: 60px;
     text-align: center;
     overflow: hidden;
     margin: 0 auto 10px;
-  }
-  .mobile-controls ul li button .icon svg {
+}
+.mobile-controls ul li button .icon svg {
     width: 100%;
     height: 100%;
     line-height: 40px;
     font-size: 34px;
     transition: 0.5s;
     color: #29a19c;
-  }
-  .mobile-controls ul li button .icon svg:last-child {
+}
+.mobile-controls ul li button .icon svg:last-child {
     color: #a3f7bf;
-  }
-  .mobile-controls ul li button:hover .icon svg {
+}
+.mobile-controls ul li button:hover .icon svg {
     transform: translateY(-100%);
-  }
-  .mobile-controls ul li button .name {
+}
+.mobile-controls ul li button .name {
     position: relative;
     height: 20px;
     width: 100%;
     display: block;
-  }
-  .mobile-controls ul li button .name p {
+}
+.mobile-controls ul li button .name p {
     display: block;
     position: relative;
-    color: #29a19c;
-  
+    color: rgb(221, 221, 221);
+
     line-height: 20px;
     transition: 0.5s;
-  
+
     overflow: hidden;
-  }
-  
+}
